@@ -662,7 +662,7 @@ static AS3_Val wavetableIn(void *self, AS3_Val args)
 				}
 			}
 			intPhase = ((int)(phase*0.5))*2; // int phase, round to even frames, for each stereo frame pair
-			wavetablePosition = sourceBuffer + intPhase;
+			wavetablePosition = sourceBuffer + (intPhase * 2);
 			*buffer++ = interpolate(*wavetablePosition, *(wavetablePosition+2), phase - intPhase);
 			*buffer++ = interpolate(*(wavetablePosition+1), *(wavetablePosition+3), phase - intPhase);
 			// Increment phase by adjusting phaseAdd for instantaneous pitch bend 
